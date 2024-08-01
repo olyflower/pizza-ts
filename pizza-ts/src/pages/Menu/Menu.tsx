@@ -25,14 +25,17 @@ const Menu: React.FC = () => {
 		dispatch(clearCart());
 	}, [dispatch]);
 
+	console.log("Menu Items from Redux:", items);
+
 	const menuItems = items?.data || [];
+	console.log("Menu Items for Filtering:", menuItems);
 
 	const filteredItems = Array.isArray(menuItems)
 		? menuItems.filter((item) =>
-			item.name.toLowerCase().includes(searchQuery.toLowerCase())
+				item.name.toLowerCase().includes(searchQuery.toLowerCase())
 		  )
 		: [];
-	console.log("Filtered Items: ", filteredItems); 
+	console.log("Filtered Items: ", filteredItems);
 
 	return (
 		<div className={style.menu}>

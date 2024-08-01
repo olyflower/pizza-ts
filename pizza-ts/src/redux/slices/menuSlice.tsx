@@ -16,7 +16,7 @@ const initialState: MenuState = {
 };
 
 export const getData = createAsyncThunk<
-	ApiResponse<MenuItem[]>,
+	ApiResponse<MenuItem[]>, 
 	void,
 	{ rejectValue: string }
 >("menu/getData", async (_, { rejectWithValue }) => {

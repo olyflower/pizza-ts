@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRedirect } from "../../hooks/useRedirect";
 import { updateOrderPriority } from "../../redux/slices/orderSlice";
 import Button from "../../components/Button/Button";
-import { RootState } from "../../redux/store";
+import { RootState, AppDispatch } from "../../redux/store";
 import { Order } from "../../types/orderTypes";
 import style from "../OrderDetail/OrderDetail.module.css";
 
 const OrderDetail: React.FC = () => {
 	const { id } = useParams<{ id: string }>();
-	const dispatch = useDispatch();
+	const dispatch = useDispatch<AppDispatch>();
 	const orders = useSelector((state: RootState) => state.orders.orders);
 	const order: Order | undefined = orders.find((order) => order.id === id);
 

@@ -1,10 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import {
-	OrdersState,
-	Order,
-	CreateOrderPayload,
-	UpdateOrderPriorityPayload,
-} from "../../types/orderTypes";
+import { OrdersState, Order, CreateOrderPayload } from "../../types/orderTypes";
 import { ApiResponse } from "../../types/apiTypes";
 import service from "../../services/services";
 
@@ -21,7 +16,7 @@ export const createOrder = createAsyncThunk<
 >("orders/createOrder", async (orderData, { rejectWithValue }) => {
 	try {
 		const response = await service.post(orderData);
-		return response as ApiResponse<Order>;
+		return response;
 	} catch (error) {
 		return rejectWithValue("Something went wrong");
 	}
@@ -35,8 +30,8 @@ export const updateOrderPriority = createAsyncThunk<
 	"orders/updateOrderPriority",
 	async ({ id, priority }, { rejectWithValue }) => {
 		try {
-			const response = await service.patch(id, { priority });
-			return response as Order;
+			const response = await service.patch(id, { id, priority });
+			return response;
 		} catch (error) {
 			return rejectWithValue("Something went wrong");
 		}
@@ -55,7 +50,7 @@ const ordersSlice = createSlice({
 			})
 			.addCase(
 				createOrder.fulfilled,
-				(state, action: PayloadAction<Order>) => {
+				(state, action: PayloadAction<ApiResponse<Order>>) => {
 					state.status = "succeeded";
 					state.orders.push(action.payload.data);
 				}
@@ -70,7 +65,7 @@ const ordersSlice = createSlice({
 			})
 			.addCase(
 				updateOrderPriority.fulfilled,
-				(state, action: PayloadAction<Order>) => {
+				(state, action: PayloadAction<ApiResponse<Order>>) => {
 					state.status = "succeeded";
 					const updatedOrder = action.payload.data;
 					const index = state.orders.findIndex(
