@@ -8,20 +8,12 @@ import {
 } from "../../redux/slices/cartSlice";
 import { RootState } from "../../redux/store";
 import Button from "../Button/Button";
+import { MenuItem as MenuItemType } from "../../types/menuTypes";
 import classNames from "classnames";
 import style from "../MenuItem/MenuItem.module.css";
 
-interface MenuItemData {
-	id: number;
-	name: string;
-	unitPrice: number;
-	imageUrl: string;
-	ingredients: string[];
-	soldOut: boolean;
-}
-
 interface MenuItemProps {
-	item: MenuItemData;
+	item: MenuItemType;
 }
 
 const MenuItem: React.FC<MenuItemProps> = ({ item }) => {

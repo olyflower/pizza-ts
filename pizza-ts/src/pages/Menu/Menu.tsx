@@ -27,7 +27,8 @@ const Menu: React.FC = () => {
 
 	console.log("Menu Items from Redux:", items);
 
-	const menuItems = items?.data || [];
+	const menuItems = items.data || [];
+	
 	console.log("Menu Items for Filtering:", menuItems);
 
 	const filteredItems = Array.isArray(menuItems)

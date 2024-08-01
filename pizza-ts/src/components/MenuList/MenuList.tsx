@@ -1,17 +1,9 @@
 import MenuItem from "../MenuItem/MenuItem";
+import { MenuItem as MenuItemType } from "../../types/menuTypes";
 import style from "../../components/MenuList/MenuList.module.css";
 
-interface MenuItemData {
-	id: number;
-	name: string;
-	unitPrice: number;
-	imageUrl: string;
-	ingredients: string[];
-	soldOut: boolean;
-}
-
 interface MenuListProps {
-	data: MenuItemData[];
+  data: MenuItemType[]; 
 }
 
 const MenuList: React.FC<MenuListProps> = ({ data }) => {
