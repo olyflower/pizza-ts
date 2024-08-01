@@ -1,0 +1,39 @@
+.container {
+	position: relative;
+	font-family: Roboto Mono, monospace;
+	font-size: 16px;
+	line-height: 1.2;
+	color: rgb(68, 64, 60);
+}
+
+.wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+}
+
+.content {
+	text-align: center;
+}
+
+.title {
+	font-size: 30px;
+	line-height: 1.2;
+	margin-bottom: 20px;
+}
+
+.sub__title {
+	margin-bottom: 30px;
+}
+
+.text__yellow {
+	color: rgb(234 179 8);
+}
+
+.login__form {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}

@@ -1,0 +1,27 @@
+.container {
+	font-family: Roboto Mono, monospace;
+	font-size: 16px;
+	line-height: 1.2;
+	color: rgb(68, 64, 60);
+	padding: 20px;
+}
+
+.wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: center;
+	min-height: 100vh;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+
+li {
+	flex: 1 1 300px;
+	margin: 10px;
+}

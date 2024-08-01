@@ -1,0 +1,52 @@
+.pizza {
+	display: flex;
+	gap: 16px;
+	padding: 8px 0;
+}
+
+.pizza__image {
+	width: 100px;
+	height: 100px;
+}
+
+.pizza__info {
+	display: flex;
+	flex-direction: column;
+	width: 800px;
+}
+
+.pizza__name {
+	font-weight: 500;
+}
+
+.pizza__ingredients {
+	font-style: italic;
+	margin-bottom: 10px;
+}
+
+.pizza__actions {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.pizza__price {
+	font-size: 14px;
+}
+
+.soldOut .pizza__image {
+	filter: grayscale(100%);
+}
+
+.soldOut .pizza__info,
+.soldOut .pizza__name,
+.soldOut .pizza__ingredients,
+.soldOut .pizza__price {
+	color: rgba(0, 0, 0, 0.5);
+}
+
+.pizza__count {
+	display: flex;
+  align-items: center;
+	gap: 10px;
+}

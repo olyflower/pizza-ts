@@ -1,0 +1,50 @@
+.container {
+	margin-top: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	gap: 10px;
+	font-family: Roboto Mono, monospace;
+	font-size: 16px;
+	line-height: 1.2;
+	color: rgb(68, 64, 60);
+	padding: 50px;
+}
+
+.status {
+	display: flex;
+	gap: 30px;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+}
+
+.info {
+	background-color: #46b55a;
+	color: azure;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+.delivery {
+	background-color: lightgrey;
+	border-radius: 5px;
+	padding: 10px;
+	font-weight: bold;
+}
+.total {
+	display: flex;
+	gap: 40px;
+}
+
+.title {
+	font-weight: bolder;
+}
+
+.priority {
+	background-color: red;
+	color: azure;
+	padding: 5px;
+	border-radius: 5px;
+}
