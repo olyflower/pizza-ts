@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { RootState } from "../../redux/store";
 import { useRedirect } from "../../hooks/useRedirect";
-import style from "../../components/Header/Header.module.css";
 import Button from "../Button/Button";
+import style from "../../components/Header/Header.module.css";
 
 const Header: React.FC = () => {
 	const userName = useSelector((state: RootState) => state.auth.userName);

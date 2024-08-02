@@ -14,8 +14,8 @@ const service = {
 			if (!request.ok) {
 				throw new Error(`Error status: ${request.status}`);
 			}
-			const data: MenuItem[] = await request.json();
-			return { status: "success", data };
+			const response: ApiResponse<MenuItem[]> = await request.json();
+			return response;
 		} catch (err) {
 			console.log(err);
 			throw err;

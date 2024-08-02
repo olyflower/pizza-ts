@@ -5,7 +5,6 @@ import Search from "../../components/Search/Search";
 import { getData, selectMenu } from "../../redux/slices/menuSlice";
 import { clearCart } from "../../redux/slices/cartSlice";
 import { RootState, AppDispatch } from "../../redux/store";
-
 import style from "../Menu/Menu.module.css";
 
 const Menu: React.FC = () => {
@@ -25,18 +24,9 @@ const Menu: React.FC = () => {
 		dispatch(clearCart());
 	}, [dispatch]);
 
-	console.log("Menu Items from Redux:", items);
-
-	const menuItems = items.data || [];
-	
-	console.log("Menu Items for Filtering:", menuItems);
-
-	const filteredItems = Array.isArray(menuItems)
-		? menuItems.filter((item) =>
-				item.name.toLowerCase().includes(searchQuery.toLowerCase())
-		  )
-		: [];
-	console.log("Filtered Items: ", filteredItems);
+	const filteredItems = items.filter((item) =>
+		item.name.toLowerCase().includes(searchQuery.toLowerCase())
+	);
 
 	return (
 		<div className={style.menu}>

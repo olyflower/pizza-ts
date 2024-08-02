@@ -47,13 +47,11 @@ const NewOrder: React.FC = () => {
 				totalPrice: item.quantity * item.unitPrice,
 			})),
 		};
-		console.log("Order data before dispatch:", orderData);
 
 		try {
 			const result = await dispatch(createOrder(orderData) as any);
 			if (createOrder.fulfilled.match(result)) {
 				const orderId = result.payload.data.id;
-				console.log("Order ID from response:", orderId);
 				navigate(`/order/${orderId}`);
 			} else {
 				console.error("Something went wrong", result.payload);
