@@ -1,13 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import service from "../../services/services";
-import { MenuItem } from "../../types/menuTypes";
+import { MenuItem, MenuState } from "../../types/menuTypes";
 import { ApiResponse } from "../../types/apiTypes";
-
-interface MenuState {
-	items: MenuItem[];
-	status: "idle" | "loading" | "succeeded" | "failed";
-	error: string | null;
-}
 
 const initialState: MenuState = {
 	items: [],
@@ -16,13 +10,13 @@ const initialState: MenuState = {
 };
 
 export const getData = createAsyncThunk<
-	ApiResponse<MenuItem[]>, 
+	ApiResponse<MenuItem[]>,
 	void,
 	{ rejectValue: string }
 >("menu/getData", async (_, { rejectWithValue }) => {
 	try {
 		const response: ApiResponse<MenuItem[]> = await service.get();
-		return response; 
+		return response;
 	} catch (error) {
 		return rejectWithValue("Failed to fetch data");
 	}
@@ -52,4 +46,5 @@ const menuSlice = createSlice({
 });
 
 export default menuSlice.reducer;
+
 export const selectMenu = (state: { menu: MenuState }) => state.menu;
